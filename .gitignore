@@ -7,7 +7,10 @@ wheels/
 *.egg-info
 
 # Virtual environments
-.venv
+.venv/
 
-# video files
-n8n_masterclass_2.mp4
+# Environment variables
+.env
+
+# VS Code settings
+.vscode/

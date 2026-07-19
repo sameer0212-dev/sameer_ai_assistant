@@ -1,5 +1,13 @@
 import streamlit as st
 import requests
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Get webhook URL from .env
+WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 
 # create the title for the page
 st.title("🤝 Sameer's Personal Assistant")
@@ -32,25 +40,32 @@ for message in st.session_state.messages:
 # create a chat input box
 user_message = st.chat_input()
 
-      
+# if user sends a message
 # if user sends a message
 if user_message:
     with st.chat_message("user"):
         st.markdown(user_message)
         # append the user message to message history
-        st.session_state.messages.append({"role": "user", "content": user_message})
-    
+        st.session_state.messages.append({
+            "role": "user",
+            "content": user_message
+        })
+
     # send the user message to the n8n webhook
-    response = requests.post(
-        "https://sameeraestics.app.n8n.cloud/webhook/f443cb9e-7724-4f7a-98c1-4c73ebe9e7c5",  # replace with your n8n webhook URL
-        json={"message": user_message}
-    )
-    
+    with st.spinner("🤖 Thinking..."):
+        response = requests.post(
+            WEBHOOK_URL,
+            json={"message": user_message},
+            timeout=30
+        )
+
     # get the AI response from webhook
     ai_response = response.json()[0]["output"]
-    
+
     # display the AI response in chat
     with st.chat_message("assistant"):
         st.markdown(ai_response)
-        # append the AI response to message history
-        st.session_state.messages.append({"role": "assistant", "content": ai_response})
+        st.session_state.messages.append({
+            "role": "assistant",
+            "content": ai_response
+        })
