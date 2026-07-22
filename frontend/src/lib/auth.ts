@@ -1,0 +1,29 @@
+import { supabase } from "./supabase";
+
+export async function signInWithGoogle() {
+  await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: "http://localhost:3000",
+
+      scopes: [
+        "openid",
+        "email",
+        "profile",
+
+        "https://www.googleapis.com/auth/gmail.send",
+        "https://www.googleapis.com/auth/gmail.readonly",
+
+        "https://www.googleapis.com/auth/calendar",
+
+        "https://www.googleapis.com/auth/documents",
+
+        "https://www.googleapis.com/auth/drive.file",
+
+        "https://www.googleapis.com/auth/spreadsheets",
+
+        "https://www.googleapis.com/auth/tasks",
+      ].join(" "),
+    },
+  });
+}

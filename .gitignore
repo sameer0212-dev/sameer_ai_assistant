@@ -1,4 +1,6 @@
-# Python-generated files
+# =========================
+# Python
+# =========================
 __pycache__/
 *.py[oc]
 build/
@@ -9,8 +11,31 @@ wheels/
 # Virtual environments
 .venv/
 
-# Environment variables
-.env
+# =========================
+# Node
+# =========================
+node_modules/
+frontend/node_modules/
 
-# VS Code settings
+# Next.js
+frontend/.next/
+
+# =========================
+# Environment variables
+# =========================
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env.local
+
+# =========================
+# VS Code
+# =========================
 .vscode/
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
