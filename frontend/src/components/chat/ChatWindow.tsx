@@ -19,19 +19,28 @@ export default function ChatWindow({ messages }: any) {
         return (
             <div className="flex-1 flex flex-col justify-center items-center text-center px-6">
 
-                <div className="w-24 h-24 rounded-full bg-blue-600 flex items-center justify-center text-5xl shadow-xl">
-                    🤖
+                {/* Glowing Holographic Orb with N. Emblem */}
+                <div className="relative mb-2 flex items-center justify-center">
+                    <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 opacity-40 blur-xl animate-pulse" />
+                    <div className="relative w-24 h-24 rounded-full bg-gradient-to-tr from-[#080d1a] via-[#0b1329] to-[#0d162d] border border-cyan-500/50 p-1 flex items-center justify-center shadow-[0_0_50px_rgba(6,182,212,0.4)]">
+                        <span
+                            style={{ fontFamily: "'Playfair Display', serif" }}
+                            className="text-4xl font-black italic text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-white drop-shadow-[0_0_12px_rgba(6,182,212,0.8)]"
+                        >
+                            N.
+                        </span>
+                    </div>
                 </div>
 
-                <h1 className="text-5xl font-bold mt-8">
+                <h1 className="text-5xl font-black mt-6 tracking-tight bg-gradient-to-r from-white via-slate-100 to-cyan-300 bg-clip-text text-transparent">
                     Sameer AI
                 </h1>
 
-                <p className="text-gray-400 mt-4 text-lg">
+                <p className="text-cyan-400/80 mt-2 text-sm uppercase tracking-widest font-mono">
                     Your Personal AI Assistant
                 </p>
 
-                <p className="text-gray-500 mt-2 max-w-xl">
+                <p className="text-slate-400 mt-4 max-w-xl text-sm leading-relaxed">
                     I can help you manage Gmail, Google Calendar, Google Tasks,
                     Google Docs, expenses, weather, web search and much more.
                 </p>
@@ -67,23 +76,24 @@ export default function ChatWindow({ messages }: any) {
                             {/* Avatar */}
 
                             <div
-                                className={`w-11 h-11 rounded-full flex items-center justify-center text-xl shrink-0 ${
+                                className={`w-10 h-10 rounded-xl flex items-center justify-center text-sm shrink-0 border ${
                                     msg.role === "user"
-                                        ? "bg-blue-600"
-                                        : "bg-gray-700"
+                                        ? "bg-gradient-to-tr from-cyan-500 to-blue-600 border-cyan-400/30 text-white shadow-[0_0_15px_rgba(6,182,212,0.3)]"
+                                        : "bg-[#0b1329] border-cyan-500/30 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.15)] font-black italic"
                                 }`}
+                                style={msg.role !== "user" ? { fontFamily: "'Playfair Display', serif" } : undefined}
                             >
-                                {msg.role === "user" ? "👤" : "🤖"}
+                                {msg.role === "user" ? "👤" : "N."}
                             </div>
 
 
                             {/* Bubble */}
 
                             <div
-                                className={`rounded-2xl px-5 py-4 shadow-lg whitespace-pre-wrap break-words ${
+                                className={`rounded-2xl px-5 py-4 shadow-xl whitespace-pre-wrap break-words ${
                                     msg.role === "user"
-                                        ? "bg-blue-600 text-white rounded-br-md"
-                                        : "bg-gray-800 border border-gray-700 text-white rounded-bl-md"
+                                        ? "bg-gradient-to-r from-cyan-600 to-blue-600 text-white border border-cyan-400/30 rounded-br-md shadow-[0_0_20px_rgba(6,182,212,0.15)]"
+                                        : "bg-[#080d1a]/90 backdrop-blur-md border border-cyan-500/20 text-slate-100 rounded-bl-md shadow-[0_0_20px_rgba(0,0,0,0.5)]"
                                 }`}
                             >
 

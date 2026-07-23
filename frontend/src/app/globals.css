@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -21,7 +22,38 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background:
+    radial-gradient(circle at top,#2563eb22 0%,transparent 40%),
+    radial-gradient(circle at bottom,#06b6d422 0%,transparent 45%),
+    #050816;
+
+  color: white;
+
   font-family: Arial, Helvetica, sans-serif;
+
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

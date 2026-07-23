@@ -8,7 +8,7 @@ interface Props {
 
 export default function AppLayout({ children }: Props) {
   return (
-    <div className="min-h-screen bg-gray-950 text-white flex">
+    <div className="h-screen w-screen bg-[#030712] text-slate-100 flex overflow-hidden font-sans select-none">
       {children}
     </div>
   );

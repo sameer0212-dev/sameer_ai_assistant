@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import StreamingResponse
 from auth import router as auth_router
 import httpx
 from pydantic import BaseModel
@@ -49,11 +50,11 @@ async def chat(request: ChatRequest):
         "provider_token": request.provider_token,
     }
 
-    async with httpx.AsyncClient(timeout=120.0) as client:
+    async def generate_stream():
+        async with httpx.AsyncClient(timeout=120.0) as client:
+            async with client.stream("POST", webhook_url, json=payload) as response:
+                async for chunk in response.aiter_bytes():
+                    if chunk:
+                        yield chunk
 
-        response = await client.post(
-            webhook_url,
-            json=payload,
-        )
-
-    return response.json()
+    return StreamingResponse(generate_stream(), media_type="text/plain")
