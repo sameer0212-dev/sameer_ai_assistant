@@ -123,7 +123,7 @@ export default function ChatInput({
             } = await supabase.auth.getSession();
 
             // 2. Fetch stream using native API
-            const response = await fetch("http://127.0.0.1:8000/chat", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/chat`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
