@@ -11,7 +11,7 @@ def login():
         {
             "provider": "google",
             "options": {
-                "redirect_to": "http://127.0.0.1:8000/auth/callback"
+                "redirect_to": "https://sameeraiassistant-production.up.railway.app/auth/callback"
             }
         }
     )
