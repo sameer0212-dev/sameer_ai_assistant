@@ -52,7 +52,7 @@ export default function Dashboard() {
     if (!user) return null;
 
     return (
-        <div className="relative min-h-screen w-full bg-[#030712] overflow-hidden">
+        <div className="relative min-h-dvh w-full bg-[#030712] overflow-hidden">
             {/* ================= JARVIS / GEMINI HYBRID AMBIENT BACKDROP ================= */}
             
             {/* Top Cyan Glowing Halo */}
@@ -65,7 +65,7 @@ export default function Dashboard() {
             <div className="pointer-events-none fixed inset-0 bg-[linear-gradient(to_right,#1f29370d_1px,transparent_1px),linear-gradient(to_bottom,#1f29370d_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_70%_at_50%_50%,#000_60%,transparent_100%)] z-0" />
 
             {/* Main Application Container */}
-            <div className="relative z-10 flex h-screen w-full">
+            <div className="relative z-10 flex h-dvh w-full">
                 <AppLayout>
                     <Sidebar />
 

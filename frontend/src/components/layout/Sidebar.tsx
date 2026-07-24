@@ -6,12 +6,13 @@ export default function Sidebar() {
     return (
         <aside
             className="
+                hidden
+                md:flex
                 w-72
                 bg-[#080d1a]/80
                 backdrop-blur-xl
                 border-r
                 border-cyan-500/10
-                flex
                 flex-col
                 animate-[slideLeft_.6s_ease]
                 select-none

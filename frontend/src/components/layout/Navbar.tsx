@@ -9,7 +9,7 @@ interface Props {
 
 export default function Navbar({ name, logout }: Props) {
   return (
-    <header className="w-full h-16 border-b border-cyan-500/10 bg-[#080d1a]/40 backdrop-blur-md flex justify-between items-center px-8 z-10 shrink-0">
+    <header className="w-full h-16 border-b border-cyan-500/10 bg-[#080d1a]/40 backdrop-blur-md flex justify-between items-center px-4 md:px-8 z-10 shrink-0">
       
       {/* Brand Badge */}
       <div className="flex items-center gap-3">
@@ -26,10 +26,12 @@ export default function Navbar({ name, logout }: Props) {
       </div>
 
       {/* User Info & Actions */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 md:gap-4">
         <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-cyan-500/20 shadow-[0_0_10px_rgba(6,182,212,0.1)]">
           <FaUser className="text-cyan-400 text-xs" />
-          <span className="text-xs font-medium text-slate-200">{name || "Sameer WD"}</span>
+          <span className="hidden sm:inline text-xs font-medium text-slate-200">
+            {name || "Sameer WD"}
+          </span>
         </div>
 
         <button
@@ -37,7 +39,9 @@ export default function Navbar({ name, logout }: Props) {
           className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-medium hover:bg-rose-500/20 transition-all active:scale-95"
         >
           <FaSignOutAlt className="text-xs" />
-          <span>Logout</span>
+          <span className="hidden sm:inline">
+            Logout
+          </span>
         </button>
       </div>
       

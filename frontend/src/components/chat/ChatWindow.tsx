@@ -22,7 +22,7 @@ export default function ChatWindow({ messages }: any) {
                 {/* Glowing Holographic Orb with N. Emblem */}
                 <div className="relative mb-2 flex items-center justify-center">
                     <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 opacity-40 blur-xl animate-pulse" />
-                    <div className="relative w-24 h-24 rounded-full bg-gradient-to-tr from-[#080d1a] via-[#0b1329] to-[#0d162d] border border-cyan-500/50 p-1 flex items-center justify-center shadow-[0_0_50px_rgba(6,182,212,0.4)]">
+                    <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-tr from-[#080d1a] via-[#0b1329] to-[#0d162d] border border-cyan-500/50 p-1 flex items-center justify-center shadow-[0_0_50px_rgba(6,182,212,0.4)]">
                         <span
                             style={{ fontFamily: "'Playfair Display', serif" }}
                             className="text-4xl font-black italic text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-white drop-shadow-[0_0_12px_rgba(6,182,212,0.8)]"
@@ -32,7 +32,7 @@ export default function ChatWindow({ messages }: any) {
                     </div>
                 </div>
 
-                <h1 className="text-5xl font-black mt-6 tracking-tight bg-gradient-to-r from-white via-slate-100 to-cyan-300 bg-clip-text text-transparent">
+                <h1 className="text-3xl md:text-5xl font-black mt-6 tracking-tight bg-gradient-to-r from-white via-slate-100 to-cyan-300 bg-clip-text text-transparent">
                     Sameer AI
                 </h1>
 
@@ -50,9 +50,9 @@ export default function ChatWindow({ messages }: any) {
     }
 
     return (
-        <div className="flex-1 overflow-y-auto px-8 py-8">
+        <div className="flex-1 overflow-y-auto px-4 md:px-8 py-6 md:py-8">
 
-            <div className="max-w-5xl mx-auto space-y-8">
+            <div className="max-w-5xl mx-auto space-y-6 md:space-y-8">
 
                 {messages.map((msg: any, index: number) => (
 
@@ -66,7 +66,7 @@ export default function ChatWindow({ messages }: any) {
                     >
 
                         <div
-                            className={`flex items-end gap-3 max-w-[80%] ${
+                            className={`flex items-end gap-2 md:gap-3 max-w-[92%] md:max-w-[80%] ${
                                 msg.role === "user"
                                     ? "flex-row-reverse"
                                     : ""
